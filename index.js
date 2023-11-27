@@ -3,7 +3,7 @@ require('dotenv').config();
 const cors = require('cors');
 
 const app = express();
-const SearchRoute = require("./routes/jobRoute");
+const jobRoute = require("./routes/jobRoute");
 
 const PORT = process.env.PORT || 5000
 const {CORS_ORIGIN} = process.env;
@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors({origin: CORS_ORIGIN})); 
 
 //routes
-app.use("/jobs", SearchRoute);
+app.use("/jobs", jobRoute);
 
 
 app.listen(PORT, () => {
